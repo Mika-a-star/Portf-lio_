@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Segurança</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://i.pinimg.com/originals/08/24/0e/08240e6ae99b0eded34a9a6652ffb8c5.gif);
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
+        }
+        .warning-box {
+            background-color: rgb(51, 255, 0);
+            padding: 20px;
+            border: 3px solid black;
+            text-align: center;
+            border-radius: 5px;
+            width: 250px;
+            animation: pulse 2s infinite alternate;
+        }
+        .warning-box::before {
+            content: "💀";
+            font-size: 50px;
+            font-weight: bold;
+            display: block;
+            color: black;
+        }
+        .hidden-info {
+            display: none;
+            background-color: yellow;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: rgb(16, 189, 0);
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            animation: pulse 2s infinite alternate;
+        }
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.15);
+            }
+        }
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .warning-box, .hidden-info, .button {
+                width: 90%;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-box" id="warningBox">
+        <p>Cuidado com os QR codes que você acessa! Por Sorte isso é apenas um Teste de um aluno da escola então não se preocupe!</p>
+    </div>
+
+    <button class="button" id="toggleButton" onclick="alternarInfo()">Continue</button>
+
+    <div class="hidden-info" id="info">
+        <p>Os QR codes podem conter links maliciosos que podem roubar seus dados. Sempre verifique a origem antes de escanear!</p>
+    </div>
+
+    <script>
+        function alternarInfo() {
+            var info = document.getElementById("info");
+            var button = document.getElementById("toggleButton");
+            var warningBox = document.getElementById("warningBox");
+
+            if (info.style.display === "block") {
+                info.style.display = "none";
+                warningBox.style.display = "block";
+                button.textContent = "Continue";
+            } else {
+                info.style.display = "block";
+                warningBox.style.display = "none";
+                button.textContent = "Voltar";
+            }
+        }
+    </script>
+</body>
+</html>
