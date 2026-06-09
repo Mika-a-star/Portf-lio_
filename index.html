@@ -1,119 +1,252 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviso de Segurança</title>
-    <style>
-        @keyframes glitch {
-            0% { transform: translate(0); filter: brightness(1); }
-            20% { transform: translate(-5px, 5px); filter: brightness(1.2); }
-            40% { transform: translate(5px, -5px); filter: contrast(1.5); }
-            60% { transform: translate(-3px, 3px); filter: brightness(0.8); }
-            80% { transform: translate(3px, -3px); filter: contrast(1.3); }
-            100% { transform: translate(0); filter: brightness(1); }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Portfólio</title>
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url(https://i.pinimg.com/originals/08/24/0e/08240e6ae99b0eded34a9a6652ffb8c5.gif);
-            background-size: cover;
-            background-position: center;
-            flex-direction: column;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .warning-box {
-            background-color: rgb(51, 255, 0);
-            padding: 20px;
-            border: 3px solid black;
-            text-align: center;
-            border-radius: 5px;
-            width: 250px;
-            animation: glitch 0.3s infinite;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .hidden-info {
-            opacity: 0;
-            transform: scale(0.8);
-            display: none;
-            background-color: yellow;
-            padding: 10px;
-            border: 2px solid black;
-            border-radius: 5px;
-            margin-top: 10px;
-            width: 250px;
-            text-align: center;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
+body{
+    font-family:Arial, sans-serif;
+    background:#121212;
+    color:white;
+}
 
-        .show {
-            opacity: 1;
-            transform: scale(1);
-            display: block;
-        }
+header{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
 
-        .button {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: rgb(16, 189, 0);
-            color: black;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:#111;
+}
 
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
-        }
+.logo{
+    color:#00d4ff;
+}
 
-        /* Responsividade */
-        @media (max-width: 600px) {
-            .warning-box, .hidden-info, .button {
-                width: 90%;
-                font-size: 16px;
-            }
-        }
-    </style>
+.menu{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#00d4ff;
+}
+
+.hero{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h2{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:#00d4ff;
+    color:black;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+section{
+    padding:80px 10%;
+}
+
+section h2{
+    color:#00d4ff;
+    margin-bottom:20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e1e1e;
+    padding:20px;
+    border-radius:10px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skills span{
+    background:#1e1e1e;
+    padding:10px 15px;
+    border-radius:20px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#0d0d0d;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h2{
+        font-size:2rem;
+    }
+}
+</style>
 </head>
 <body>
-    <div class="warning-box" id="warningBox">
-        <p>Cuidado com os QR codes que você acessa! Por Sorte isso é apenas um teste de um aluno da escola então não se preocupe!</p>
+
+<header>
+
+    <nav>
+        <h1 class="logo">Portfólio</h1>
+
+        <ul class="menu">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h2>Pedro Produções 3D</h2>
+        <p>Animador 3D • Modelador 3D • Design 3D</p>
+
+        <a href="#projetos" class="btn">
+            Ver Projetos
+        </a>
     </div>
 
-    <button class="button" id="toggleButton" onclick="alternarInfo()">Continue</button>
+</header>
 
-    <div class="hidden-info" id="info">
-        <p>Os QR codes podem conter links maliciosos que podem roubar seus dados. Sempre verifique a origem antes de escanear!</p>
-        <p>Esse aviso foi um teste feito pelo aluno Pedro Henrique Silva da escola E.E.Emilia Cabral Mota.</p>
-    </div>
+<main>
 
-    <script>
-        function alternarInfo() {
-            var info = document.getElementById("info");
-            var button = document.getElementById("toggleButton");
-            var warningBox = document.getElementById("warningBox");
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
 
-            if (info.classList.contains("show")) {
-                info.classList.remove("show");
-                setTimeout(() => info.style.display = "none", 500);
-                warningBox.style.display = "block";
-                button.textContent = "Continue";
-            } else {
-                info.style.display = "block";
-                setTimeout(() => info.classList.add("show"), 10);
-                warningBox.style.display = "none";
-                button.textContent = "Voltar";
-            }
-        }
+        <p>
+        Muito prazer me chamo Pedro Henrique um modelador e animador 3D iniciante. Ainda não possuo muitos projetos.
+        </p>
+    </section>
 
-        // Remove o efeito glitch após 3 segundos
-        setTimeout(() => {
-            document.getElementById("warningBox").style.animation = "none";
-        }, 3000);
-    </script>
+    <section id="projetos">
+        <h2>Projetos</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Projeto 1</h3>
+                <p></p>
+            </div>
+
+            <div class="card">
+                <h3>Projeto 2</h3>
+                <p></p>
+            </div>
+
+            <div class="card">
+                <h3>Projeto 3</h3>
+                <p></p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+
+        <div class="skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Modelação e Animação 3D</span>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+
+        <p>Email: hatsu9058@gmail.com</p>
+        <p>Number: +55 (31)997396465</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Pedro Henrique Silva</p>
+</footer>
+
+<script>
+console.log("Portfólio carregado!");
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        alert("Você clicou em um projeto!");
+    });
+});
+</script>
+
 </body>
 </html>
