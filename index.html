@@ -197,9 +197,113 @@ white-space:nowrap;
 background:#2a2a2a;
 
 }
+
+#intro{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100vh;
+
+background:#0d0d0d;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+transition:opacity 1.2s;
+
+}
+
+.intro-logo{
+
+font-size:3rem;
+
+color:#00d4ff;
+
+opacity:0;
+
+animation:
+entrada 1.5s forwards,
+pulso 1.5s infinite;
+
+}
+
+@keyframes entrada{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+@keyframes pulso{
+
+0%{
+
+transform:
+scale(1);
+
+}
+
+50%{
+
+transform:
+scale(1.05);
+
+}
+
+100%{
+
+transform:
+scale(1);
+
+}
+
+}
+
+body.loaded #intro{
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
 </style>
 </head>
 <body>
+
+    <div id="intro">
+
+              <h1 class="intro-logo">
+                Pedro Produções 3D
+              </h1>
+
+    </div>
 
 <header>
 
@@ -333,12 +437,32 @@ background:#2a2a2a;
 <script>
 console.log("Portfólio carregado!");
 
-const cards = document.querySelectorAll(".card");
+setTimeout(()=>{
 
-cards.forEach(card => {
-    card.addEventListener("click", () => {
-        alert("Você clicou em um projeto!");
-    });
+document.body.classList.add(
+"loaded"
+);
+
+},2500);
+
+const cards =
+document.querySelectorAll(
+".card"
+);
+
+cards.forEach(card=>{
+
+card.addEventListener(
+"click",
+
+()=>{
+
+alert(
+"Você clicou em um projeto!"
+);
+
+});
+
 });
 </script>
 
